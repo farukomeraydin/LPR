@@ -1,6 +1,6 @@
 # AMAÇ
 
-Uçtan uca plaka tespiti yapan bir model geliştirmek. Bu modeli başlıca 2 bölüme ayırdık: nesne tespiti ve optik karakter okumak. 
+Baştan sona plaka tespiti yapan bir model geliştirmek. Bu modeli başlıca 2 bölüme ayırdık: nesne tespiti ve optik karakter okumak. 
 
 # GENEL AKIŞ
 
