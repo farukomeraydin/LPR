@@ -43,3 +43,11 @@ düşük olduğu için şimdilik bu yöntemden vazgeçildi.
 
 - OCR için preprocessing işlemlerinin daha kapsayıcı yapılması lazım böylece plakayı izole edebilsin. Henüz o aşamada bir preprocessing yok.
 
+# ŞU AN ÜZERİNDE ÇALIŞILABİLECEK İŞLEMLER
+
+- OCR için plakadaki karakterleri tanıyıp o kısmı kırpan bir preprocessing oluşturmak.
+
+- Plaka tespiti için görüntüleri yamalara ayırıp eğitip kestirim işlemi yapılmalı. Ne kadar çok veri eğitilirse o kadar iyi. Kestirim aşamasında yavaşlamamak adına
+optimize çözümler üretilmeli
+
+
