@@ -15,3 +15,4 @@ Uçtan uca plaka tespiti yapan bir model geliştirmek. Bu modeli başlıca 2 bö
 
 # DENENEN YÖNTEMLER
 
+- Derin öğrenme kullanılarak tespit edilecek plakanın bounding box köşeleri tahmin edilmeye çalışıldı. Yani probleme bir regresyon problemi olarak yaklaşıldı.
