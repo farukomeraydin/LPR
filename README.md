@@ -30,3 +30,16 @@ geçirildi.
 
 # PROBLEMLER
 
+- Nesne tespitine regresyon olarak yaklaşınca kestirim sonuçları zayıf çıktı çünkü bounding box'ların 4 köşesini tahmin etmek için görüntüler tek başına yeterli veriler değil. Daha fazla özellik (feature) gerekiyor.
+
+- AutoML araçlarını denemek günler alan bir süreç olduğu için henüz iyi bir model bulunamadı. Ancak yeteri kadar zaman harcanırsa bulunabilir.
+
+- Görüntüleri hsv filtresinden geçirip eğitime sokunca kestirim aşaması çok uzun zaman alıyor. Bunun sebebi hsv filtrenin maliyetidir. Dolayısıyla hız performansı
+düşük olduğu için şimdilik bu yöntemden vazgeçildi.
+
+- Template matching yönteminde örnek olarak spesifik plakalar kullanabildiğimiz için nesne tespitini genelleştirmek zorlaşıyor.
+
+- OCR için mnist veri kümesi iyi bir kestirim sonucu vermedi. 
+
+- OCR için preprocessing işlemlerinin daha kapsayıcı yapılması lazım böylece plakayı izole edebilsin. Henüz o aşamada bir preprocessing yok.
+
