@@ -21,3 +21,5 @@ Baştan sona plaka tespiti yapan bir model geliştirmek. Bu modeli başlıca 2 b
 
 - Görüntüler yamalara ayrıldı ve plaka içeren yamalar öğretildi. Yani sınıflandırma problemi olarak yaklaşıldı. Yamalara ayrılan görüntüler öncesinde hsv filtresinden
 geçirildi.
+
+- Template matching yöntemi kullanılarak plaka tespiti yapılmaya çalışıldı.
