@@ -23,3 +23,10 @@ Baştan sona plaka tespiti yapan bir model geliştirmek. Bu modeli başlıca 2 b
 geçirildi.
 
 - Template matching yöntemi kullanılarak plaka tespiti yapılmaya çalışıldı.
+
+- OCR için mnist veri seti eğitildi ve kestirim yapıldı.
+
+- OCR için CNN ağı kullanılarak kestirim yapıldı. Eğitmeden önce erosion, dilation gibi ön işlemlerden geçti. Eğitmeden önce plakadaki karakterleri kırpabilmek için en büyük dikdörtgeni tespit eden algoritma kullanıldı.
+
+# PROBLEMLER
+
