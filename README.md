@@ -19,3 +19,5 @@ Baştan sona plaka tespiti yapan bir model geliştirmek. Bu modeli başlıca 2 b
 
 - AutoML araçlarından autokeras kullanılarak en iyi model elde edilmeye çalışıldı.
 
+- Görüntüler yamalara ayrıldı ve plaka içeren yamalar öğretildi. Yani sınıflandırma problemi olarak yaklaşıldı. Yamalara ayrılan görüntüler öncesinde hsv filtresinden
+geçirildi.
