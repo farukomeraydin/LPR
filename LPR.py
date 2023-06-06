@@ -39,7 +39,15 @@ class LPR:
         self.rectangles = self.cascade.detectMultiScale(input_img, minNeighbors=minNeighbors, minSize=minSize, maxSize=maxSize)
         detection_image = self.vision.draw_rectangles(input_img, self.rectangles)
         
-        return detection_image
+        crop = []
+        for i in range(len(self.rectangles)):
+            x = self.rectangles[i][0]
+            y = self.rectangles[i][1]
+            w = self.rectangles[i][2]
+            h = self.rectangles[i][3]
+            crop.append(input_img[y:y + h, x:x + w])
+        
+        return crop
     
     def get_time_frame(hour=0, min=0, sec=0, frame_rate=None):
         specific_frame = (hour * 3600 + min * 60 + sec) * frame_rate
