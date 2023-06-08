@@ -37,7 +37,7 @@ class LPR:
             input_img = input_img[:, dead_zone:input_img.shape[1] - dead_zone]
             
         self.rectangles = self.cascade.detectMultiScale(input_img, minNeighbors=minNeighbors, minSize=minSize, maxSize=maxSize)
-        detection_image = self.vision.draw_rectangles(input_img, self.rectangles)
+        detection_image = self.vision.draw_rectangles(input_img.copy(), self.rectangles)
         
         crop = []
         for i in range(len(self.rectangles)):
