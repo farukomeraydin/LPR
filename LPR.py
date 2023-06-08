@@ -117,7 +117,7 @@ class LPR:
         plt.imshow(img, cmap='gray')
         plt.show()
         
-    def inverse_threshold(self, image, resize_dim=(dim2, dim1), th=100):
+    def inverse_threshold(self, image, resize_dim=(dim2, dim1), th=100, adaptive=True):
         inv = cv.bitwise_not(image)
         
         LPR.display_plt(self, inv, 'INV')
@@ -126,8 +126,11 @@ class LPR:
         
         LPR.display_plt(self, inv_down, 'INV Downscaled')
         
-        inv_down[inv_down > th] = 255
-        inv_down[inv_down < th] = 0
+        if adaptive:
+            inv_down = cv.adaptiveThreshold(inv_down, 255, cv.ADAPTIVE_THRESH_MEAN_C, cv.THRESH_BINARY, 11, 2)
+        else:
+            inv_down[inv_down >= th] = 255
+            inv_down[inv_down < th] = 0
         
         LPR.display_plt(self, inv_down, 'INV Thresholded')
         
@@ -147,13 +150,17 @@ class LPR:
         LPR.floodfill(self, img, row - 1, col)
         LPR.floodfill(self, img, row, col + 1)
         LPR.floodfill(self, img, row + 1, col)
-        LPR.floodfill(self, img, row, col - 1)    
+        LPR.floodfill(self, img, row, col - 1)
         
-    def split(self, original_img, filled_img, whitePixNum=3, isWrite=True, writePath='ROI'):
+    def crop(self, img, crop_size=5):
+        return img[crop_size:img.shape[0] - crop_size, :]
+        
+        
+    def split(self, original_img, filled_img, minWhitePix=0, maxWhitePix=3, isWrite=True, writePath='ROI'):
         indices = []
 
         for i in range(filled_img.shape[1]):
-            if filled_img[:, i].sum() >= 0 and filled_img[:, i].sum() < 255 * whitePixNum:
+            if filled_img[:, i].sum() >= 255 * minWhitePix and filled_img[:, i].sum() < 255 * maxWhitePix:
                 indices.append(i)
                 
         medians = []
@@ -172,6 +179,7 @@ class LPR:
             medians.append(np.median(cluster))
 
         medians = np.ceil(medians).astype(int)
+        print(f'MEDIANS of Downscaled Image: {medians}')
         medians = np.ceil(medians * (original_img.shape[1] / self.dim2)).astype(int)
         print(f'MEDIANS of each slicing lines: {medians}')
         
