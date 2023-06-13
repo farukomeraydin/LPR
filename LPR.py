@@ -53,11 +53,13 @@ class LPR:
         specific_frame = (hour * 3600 + min * 60 + sec) * frame_rate
         return int(specific_frame)
     
-    def detect_video(self, video_path, kernel, minNeighbors=3, minSize=(dim1, dim2), maxSize=None, isDisplay=True, printFPS=True, isWrite=True, writePath=None):
+    def detect_video(self, video_path, kernel, minNeighbors=3, minSize=(dim1, dim2), maxSize=None, isDisplay=True, printFPS=True, isWrite=True, writePath=None, resize_dim=(1280, 720)):
         cap = cv.VideoCapture(video_path)
         ret, frame = cap.read()
+        frame = cv.resize(frame, resize_dim, interpolation = cv.INTER_AREA)
         interval = frame.shape[1] // 36
         dead_zone = int(interval * 7.5)
+        
         if isWrite:
             k = 0
             
@@ -66,6 +68,7 @@ class LPR:
         
         while True:
             ret, screenshot = cap.read()
+            screenshot = cv.resize(screenshot, resize_dim, interpolation = cv.INTER_AREA)
             screenshot = screenshot[:, dead_zone:screenshot.shape[1] - dead_zone, :]
             self.rectangles = self.cascade.detectMultiScale(screenshot, minNeighbors=minNeighbors, minSize=minSize, maxSize=maxSize)
             if len(self.rectangles):
@@ -75,6 +78,7 @@ class LPR:
                     w = self.rectangles[i][2]
                     h = self.rectangles[i][3]
                     crop = screenshot[y:y + h, x:x + w]
+                    #print(f'Crop Shape {i}: {crop.shape}')
                     gray = cv.cvtColor(crop, cv.COLOR_BGR2GRAY)
                     th1 = cv.adaptiveThreshold(gray, 255, cv.ADAPTIVE_THRESH_MEAN_C, cv.THRESH_BINARY, 11, 2)
                     th2 = cv.adaptiveThreshold(gray, 255, cv.ADAPTIVE_THRESH_GAUSSIAN_C, cv.THRESH_BINARY, 11, 2)
@@ -90,7 +94,7 @@ class LPR:
                         
                     if isWrite:
                         cv.imwrite(f'{writePath}/{k}.jpg', closing)
-                        cv.imwrite(f'sample/gray_{k}.jpg', gray)
+                        cv.imwrite(f'{writePath}/gray_{k}.jpg', gray)
                         k += 1
                         
             detection_image = self.vision.draw_rectangles(screenshot, self.rectangles)
