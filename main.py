@@ -21,36 +21,10 @@ lpr.display_plt(di[1], 'Matches')
 di[1] = np.mean(di[1], axis=2).astype(np.uint8)
 lpr.display_plt(di[1], 'Matches')
 
-####################################
-
-
-
-########DETECTION ON VIDEO##########
-
-lpr = LPR('cascade_1200pos_2600neg_15stage_72_24/cascade.xml')
-kernel = cv.getStructuringElement(cv.MORPH_RECT,(1, 1))
-lpr.detect_video('garage2.mkv', kernel, maxSize=(200, 400), isWrite=True, printFPS=True, isDisplay=False, minSize=(100, 200), minNeighbors=3, writePath='sample')
-
-####################################
-
-
 ###########SPLIT FOR OCR############
 
-lpr = LPR(None)
-
-img = lpr.read_image('sample/gray_50.jpg', isGray=True)
-lpr.display_img(img, 'CROPPED')
-
 orig, inv = lpr.inverse_threshold(di[1], adaptive=True, isDisplay=True)
-"""
-kernel = cv.getStructuringElement(cv.MORPH_RECT,(3, 1)) 
-inv = cv.erode(inv, kernel, iterations=1)
-inv = cv.morphologyEx(inv, cv.MORPH_OPEN, kernel)
-inv = cv.morphologyEx(inv, cv.MORPH_CLOSE, kernel)
-inv = cv.morphologyEx(inv, cv.MORPH_TOPHAT, kernel)
-inv = cv.morphologyEx(inv, cv.MORPH_BLACKHAT, kernel)
-lpr.display_plt(inv, 'ERODED INV')
-"""
+
 lpr.floodfill(inv, 0, 4)
 lpr.display_plt(inv, 'filled')
 
