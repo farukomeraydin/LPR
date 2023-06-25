@@ -39,3 +39,5 @@ Bu aşamalarda test ortamına göre ayarlanacak parametreler aşağıdaki gibidi
  
 ![data_distribution](https://github.com/farukomeraydin/LPR/assets/59957778/4a544ba4-da2d-40d7-b0ce-1caa6d33fa1a)
 
+
+Eğer veri seti geliştirilmek isteniyor ise (bu mutlaka gereklidir) main.py dosyası çalıştırılmalı. Bu dosyada yukarıda anlatılan plaka tanımaya ilişkin tüm adımlar uygun parametreler seçilerek gerçekleştirilir. Böylece OCR için daha çok görüntü oluşturulur. Veri üretiminden sonra ocr.py dosyası ile tekrardan eğitim yapılıp yeni model kaydedilebilir. Yeni üretilen veriler "mydataset" klasörüne eklenmelidir. Görüntülerin isimleri kaydedilirken "Etiketİsmi_görüntüSayısı" notasyonu uygulandı. Örneğin 9 karakterinin olduğu görüntü eklenecekse "9_77.jpg" gibi kaydedilmelidir. Bunun anlamı 9 karakterinden 77. görüntü veri setine eklenmiştir yani 77 tane 9 karakterinin görüntüsü var demektir. 
