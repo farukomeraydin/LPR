@@ -23,7 +23,10 @@ Bu aşamalarda test ortamına göre ayarlanacak parametreler aşağıdaki gibidi
 
 
 # libs
- Bu dizindeki python dosyaları ana kodun olduğu dizine alınmalıdır. Bu kütüphanelerden başlıca kullanılan modül LPR.py dosyasıdır. Plaka tanımaya ilişkin metotlar LPR sınıfında yazılmıştır. Diğer modüller daha çok test etme gibi işlemlerde işe yarıyor. Test işlemini kolaylaştırmak için görüntü tespiti için ayrı, video tespiti için ayrı metotlar yazılmıştır.
+ Bu dizindeki python dosyaları ana kodun olduğu dizine alınmalıdır. Bu kütüphanelerden başlıca kullanılan modül LPR.py dosyasıdır. Plaka tanımaya ilişkin metotlar LPR sınıfında yazılmıştır. Diğer modüller daha çok test etme gibi işlemlerde işe yarıyor. Test işlemini kolaylaştırmak için görüntü tespiti için ayrı, video tespiti için ayrı metotlar yazılmıştır. 
+
+LPR sınıfının 87.satırındaki koşul tespit edilecek dikdörtgenlerin hangilerinin dikkate alıncağıyla ilgilidir. Kameranın baktığı yere göre buradaki if koşulu güncellenmelidir. 
+Ayrıca 117.satırdaki count değişkeni predict işleminin kaç defa yapılacağını belirtir. Biz çok vakit harcamamak adına 1 defa yapıyoruz.
 
  # Çalıştırılacak kodlar
 
