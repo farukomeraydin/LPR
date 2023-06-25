@@ -1,6 +1,6 @@
 # Genel Akış
 
-Plaka tespiti opencv'nin haar kaskat yapısı kullanılarak gerçekleştirildi. Burada eğitilen model "cascade_1200pos_2600neg_15stage_72_24" dizinindedir. Eğitim için kullanılan veriler "" linkindedir. opencv kullanılarak yapılan bu eğitim "https://www.youtube.com/watch?v=XrCAvs9AePM&list=PL1m2M8LQlzfKtkKq2lK5xko4X-8EZzFPI&index=8" linkinden bakılarak yapılmıştır. Eğitim sırasında ROI'nin boyutu (24, 72) boyutunda belirlenmiştir. Plaka tespitinden sonra karakterlerin ayrıştırılması LPR sınıfındaki split metoduyla yapıldı. En son OCR aşaması konvolüsyonel derin ağ kullanılarak yapılmıştır. Plaka tespiti yaparken kameranın 105 dereceye ayarlandığı varsayılmıştır. Geriye kalan yerler kırpıldı. Baştan sona algoritmik olarak işlemler şöyledir: 
+Plaka tespiti opencv'nin haar kaskat yapısı kullanılarak gerçekleştirildi. Burada eğitilen model "cascade_1200pos_2600neg_15stage_72_24" dizinindedir. Eğitim için kullanılan veriler "https://drive.google.com/drive/folders/1tKXRv64agRWd3P8Wt9QI-AA_M-dqsJWy?usp=sharing" linkindedir. opencv kullanılarak yapılan bu eğitim "https://www.youtube.com/watch?v=XrCAvs9AePM&list=PL1m2M8LQlzfKtkKq2lK5xko4X-8EZzFPI&index=8" linkinden bakılarak yapılmıştır. Eğitim sırasında ROI'nin boyutu (24, 72) boyutunda belirlenmiştir. Plaka tespitinden sonra karakterlerin ayrıştırılması LPR sınıfındaki split metoduyla yapıldı. En son OCR aşaması konvolüsyonel derin ağ kullanılarak yapılmıştır. Plaka tespiti yaparken kameranın 105 dereceye ayarlandığı varsayılmıştır. Geriye kalan yerler kırpıldı. Baştan sona algoritmik olarak işlemler şöyledir: 
 
 - Plaka tespiti yapılarak ROI'nin kırpılması
 - Kırpılan alana adaptif eşikleme yapılması
@@ -30,12 +30,12 @@ Ayrıca 117.satırdaki count değişkeni predict işleminin kaç defa yapılaca�
 
  # Çalıştırılacak kodlar
 
- Görüntüde plaka tanıma yapılmak isteniyorsa lpr_on_image.py dosyası, videoda plaka tanıma yapılmak isteniyorsa lpr_on_video.py dosyası çalıştırılmalı. Eğitim modelleri ve veri seti gerekli dizine alınmalıdır. video için "garage2.mkv" isimli dosya kullandık. Başka videolar da kullanılabilir.
+ Görüntüde plaka tanıma yapılmak isteniyorsa lpr_on_image.py dosyası, videoda plaka tanıma yapılmak isteniyorsa lpr_on_video.py dosyası çalıştırılmalı. Eğitim modelleri ve veri seti gerekli dizine alınmalıdır. video için "garage2.mkv" isimli dosya kullandık. Bu video "https://drive.google.com/drive/folders/1tKXRv64agRWd3P8Wt9QI-AA_M-dqsJWy?usp=sharing" linkindedir. Başka videolar da kullanılabilir.
 
 
  # OCR ve Veri Üretimi
 
- Mevcut OCR modeli ortalama %80 doğruluk oranına sahiptir. Eğitim için kullanılan veri seti "" linkinde "mydataset" klasöründedir. Ancak doğru tahmin için sınıf bazında doğruluk oranı önemlidir. Şu an veri setindeki dağılım ve sınıf bazında ortalamalar aşağıdaki gibidir:
+ Mevcut OCR modeli ortalama %80 doğruluk oranına sahiptir. Eğitim için kullanılan veri seti "https://drive.google.com/drive/folders/1tKXRv64agRWd3P8Wt9QI-AA_M-dqsJWy?usp=sharing" linkinde "mydataset" klasöründedir. Ancak doğru tahmin için sınıf bazında doğruluk oranı önemlidir. Şu an veri setindeki dağılım ve sınıf bazında ortalamalar aşağıdaki gibidir:
 
  ![class_accuracy](https://github.com/farukomeraydin/LPR/assets/59957778/0c2103dc-0cfb-4d33-9926-32791f2c450a)
 
