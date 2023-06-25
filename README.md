@@ -32,7 +32,7 @@ Bu aşamalarda test ortamına göre ayarlanacak parametreler aşağıdaki gibidi
 
  # OCR
 
- Mevcut OCR modeli ortalama %80 dorğruluk oranına sahiptir. Eğitim için kullanılan veri seti "" linkinde "mydataset" klasöründedir. Ancak doğru tahmin için sınıf bazında doğruluk oranı önemlidir. Şu an veri setindeki dağılım ve sınıf bazında ortalamalar aşağıdaki gibidir:
+ Mevcut OCR modeli ortalama %80 doğruluk oranına sahiptir. Eğitim için kullanılan veri seti "" linkinde "mydataset" klasöründedir. Ancak doğru tahmin için sınıf bazında doğruluk oranı önemlidir. Şu an veri setindeki dağılım ve sınıf bazında ortalamalar aşağıdaki gibidir:
 
  ![class_accuracy](https://github.com/farukomeraydin/LPR/assets/59957778/0c2103dc-0cfb-4d33-9926-32791f2c450a)
 
